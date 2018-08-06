@@ -1,3 +1,3 @@
-## HYmoocPart0
+# Tehtavat HYmooc kierros 1
 
-Contains diagrams for part 0
+Diagrammit tehtaviin 0.3-0.6
