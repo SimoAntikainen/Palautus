@@ -1,13 +1,19 @@
-const notification = 'Hello World'
-
-
-const notificationReducer = (state = 'Hello World', action) => {
+const notificationReducer = (state = '', action) => {
   console.log('Store contents', state)
   switch (action.type) {
   case 'SET_MESSAGE':
-    return action.message
+    return action.notification
+  case 'REMOVE_MESSAGE':
+    return ''
   default:
     return state
+  }
+}
+
+export const setNotification = (notification) => {
+  return {
+    type: 'SET_MESSAGE',
+    notification
   }
 }
 

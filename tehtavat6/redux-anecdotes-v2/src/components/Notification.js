@@ -8,10 +8,13 @@ class Notification extends React.Component {
       borderWidth: 1
     }
     const message = this.props.store.getState().notification
+    const hide = {display : this.props.store.getState().notification == '' ? 'none' : ''}
 
     return (
-      <div style={style}>
-        {message}
+      <div style={hide}>
+        <div style={style}>
+          {message}
+        </div>
       </div>
     )
   }
