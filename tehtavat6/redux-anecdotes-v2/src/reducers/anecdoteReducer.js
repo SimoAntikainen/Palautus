@@ -19,7 +19,7 @@ const asObject = (anecdote) => {
 
 const initialState = anecdotesAtStart.map(asObject)
 
-const anecdoteReducer = (store = initialState, action) => {
+const anecdoteReducer = (store = [], action) => {
   console.log('Store contents', store)
 
   if (action.type==='VOTE') {
@@ -32,6 +32,10 @@ const anecdoteReducer = (store = initialState, action) => {
 
     return [...store, action.data]
   }
+  if(action.type === 'INITIALIZE_ANECDOTES') {
+    return action.data
+  }
+
 
   return store
 }
@@ -51,6 +55,13 @@ export const voteAnecdote = (id) => {
   return {
     type: 'VOTE',
     id
+  }
+}
+
+export const anecdoteInitialization = (data) => {
+  return {
+    type: 'INITIALIZE_ANECDOTES',
+    data
   }
 }
 
