@@ -1,10 +1,14 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 import { setFilter } from './../reducers/filterReducer'
 
 class Filter extends React.Component {
   handleChange = (event) => {
+    event.preventDefault()
     console.log('filter', event.target.value)
-    this.props.store.dispatch(setFilter(event.target.value))
+    this.props.setFilter(event.target.value)
+
     // input-kentän arvo muuttujassa event.target.value
   }
   render() {
@@ -20,4 +24,14 @@ class Filter extends React.Component {
   }
 }
 
-export default Filter
+
+const mapDispatchToProps = {
+  setFilter
+}
+
+
+const ConnectedFilter = connect(
+  null, mapDispatchToProps
+)(Filter)
+
+export default ConnectedFilter

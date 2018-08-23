@@ -1,4 +1,6 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 import { anecdoteCreation } from './../reducers/anecdoteReducer'
 import { setNotification } from './../reducers/notificationReducer'
 
@@ -6,8 +8,8 @@ class AnecdoteForm extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault()
     const content = e.target.anecdote.value
-    this.props.store.dispatch(anecdoteCreation(content))
-    this.props.store.dispatch(setNotification('Added ' + content + ''))
+    this.props.anecdoteCreation(content)
+    this.props.setNotification('Added ' + content + '')
   
     e.target.anecdote.value = ''
   }
@@ -24,4 +26,15 @@ class AnecdoteForm extends React.Component {
    }
 }
 
-export default AnecdoteForm
+
+
+const mapDispatchToProps = {
+  anecdoteCreation, setNotification
+}
+
+
+const ConnectedAnecdoteForm = connect(
+  null, mapDispatchToProps
+)(AnecdoteForm)
+
+export default ConnectedAnecdoteForm
