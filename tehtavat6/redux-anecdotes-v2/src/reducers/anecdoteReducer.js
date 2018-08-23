@@ -40,14 +40,10 @@ const anecdoteReducer = (store = [], action) => {
   return store
 }
 
-export const anecdoteCreation = (content) => {
+export const anecdoteCreation = (data) => {
   return {
     type: 'CREATE',
-    data: {
-      content,
-      id: getId(),
-      votes:0
-    }
+    data
   }
 }
 
