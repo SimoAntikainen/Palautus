@@ -10,8 +10,8 @@ import anecdoteService from './services/anecdotes'
 
 class App extends React.Component {
   componentDidMount = async () => {
-    const anecdotes = await anecdoteService.getAll()
-    this.props.anecdoteInitialization(anecdotes)
+    //const anecdotes = await anecdoteService.getAll()
+    this.props.anecdoteInitialization()
   }
 
   render() {
@@ -22,8 +22,7 @@ class App extends React.Component {
         <Notification/>
         <Filter/>
         <AnecdoteList />
-        <AnecdoteForm />
-        
+        <AnecdoteForm /> 
       </div>
     )
   }
