@@ -8,13 +8,13 @@ import anecdoteService from '../services/anecdotes'
 class AnecdoteList extends React.Component {
   handleVote = async (id, anecdote) => {
     console.log('Anecdote', anecdote.content)
-    const voted = await anecdoteService.addVote(id, anecdote)
-    this.props.voteAnecdote(id)
+    //const voted = await anecdoteService.addVote(id, anecdote)
+    this.props.voteAnecdote(id, anecdote)
     this.props.setNotification('you voted: ' + anecdote.content + '')
 
     setTimeout(() => {
       this.props.setNotification('')
-    }, 10000);
+    }, 5000);
 
   }
   render() {

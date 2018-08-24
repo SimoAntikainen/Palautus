@@ -10,9 +10,13 @@ class AnecdoteForm extends React.Component {
     e.preventDefault()
     const content = e.target.anecdote.value
     e.target.anecdote.value = ''
-    const newAnecdote = await anecdoteService.postAnecdote(content)
-    this.props.anecdoteCreation(newAnecdote)
+    //const newAnecdote = await anecdoteService.postAnecdote(content)
+    this.props.anecdoteCreation(content)
     this.props.setNotification('Added ' + content + '')
+    setTimeout(() => {
+      this.props.setNotification('')
+    }, 5000);
+
   }
    render() {
      return (
