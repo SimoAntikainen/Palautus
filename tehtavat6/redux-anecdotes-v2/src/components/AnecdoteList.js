@@ -10,11 +10,11 @@ class AnecdoteList extends React.Component {
     console.log('Anecdote', anecdote.content)
     //const voted = await anecdoteService.addVote(id, anecdote)
     this.props.voteAnecdote(id, anecdote)
-    this.props.setNotification('you voted: ' + anecdote.content + '')
+    this.props.setNotification('you voted: ' + anecdote.content + '', 5000)
 
-    setTimeout(() => {
+    /**setTimeout(() => {
       this.props.setNotification('')
-    }, 5000);
+    }, 5000);**/
 
   }
   render() {

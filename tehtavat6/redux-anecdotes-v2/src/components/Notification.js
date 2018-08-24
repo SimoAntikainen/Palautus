@@ -10,6 +10,7 @@ class Notification extends React.Component {
       borderWidth: 1
     }
     const { notification } = this.props
+    console.log('Notification', notification)
     const hide = {display : notification == '' ? 'none' : ''}
 
     return (
